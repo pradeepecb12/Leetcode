@@ -1,0 +1,24 @@
+class Solution {
+    public List<String> topKFrequent(String[] words, int k) {
+        List<String> top=new ArrayList<>();
+        int n=words.length;
+        HashMap<String,Integer> map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            map.put(words[i],map.getOrDefault(words[i],0)+1);            // adding string with freq in Map
+        }
+        List<Map.Entry<String,Integer>> list=new ArrayList<>(map.entrySet());  //converting Map to List
+        
+
+        Collections.sort(list,(a,b) -> {
+            if(!a.getValue().equals(b.getValue())){                // Ordering List
+                return b.getValue()-a.getValue();
+            }
+            return a.getKey().compareTo(b.getKey());            // order by lexicographical order.
+        });
+        for(int i=0;i<k;i++){
+            top.add(list.get(i).getKey());       // add top k string to output
+        }
+        return top;
+    }
+}
+
