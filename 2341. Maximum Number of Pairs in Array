@@ -1,0 +1,19 @@
+class Solution {
+    public int[] numberOfPairs(int[] nums) {
+        int n=nums.length;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        }
+        int Oddcount=0;
+        int pairs=0;
+        for(Map.Entry<Integer,Integer> entry:map.entrySet()){
+            int freq=entry.getValue();
+            pairs+=freq/2;
+            if(freq%2!=0){
+                Oddcount++;
+            }
+        }
+        return new int[]{pairs,Oddcount};  
+    }
+}
