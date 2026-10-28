@@ -17,34 +17,14 @@ class Solution {
                 if(Arrays.equals(first,last)){
                     res.remove(i);
                     istrue=true;
+                    
+                
 
                 }
             }
             
-
-
-            
         }
         return res;
         
-    }
-
-    static  boolean isremoved(List<String > res){
-        
-        for(int i=1;i<res.size();i++){
-                char [] first=res.get(i-1).toCharArray();
-                char [] last=res.get(i).toCharArray();
-
-                Arrays.sort(first);
-                Arrays.sort(last);
-
-                if(Arrays.equals(first,last)){
-                    return false;
-                }
-        }
-        return true;
-      
-        
-
     }
 }
